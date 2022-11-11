@@ -1,0 +1,11 @@
+<div class="usablePart">
+	<div class="modifyAmount">
+		<input [ngStyle]="{'background-color': dishView.getClientAmount() < 10 ? 'orange' : 'rgb(0, 149, 207)', 'color': 'white'}" class="amount" value="{{dishView.getClientAmount()}}">
+		<button *ngIf="dishView.getClientAmount()< dishView.getAmount(); else voidBlock" class="addAmount" (click)="increaseClientAmount(dishView)">+</button>
+		<button *ngIf="dishView.getClientAmount() != 0; else voidBlock" class="subtractAmount" (click)="reduceClientAmount(dishView)">-</button>
+		<ng-template #voidBlock>
+			<div class="voidBlock"></div>
+		</ng-template>
+	</div>
+	<button class="delete" (click)="onDeleteDish(dishView)">Usuń</button>
+</div>

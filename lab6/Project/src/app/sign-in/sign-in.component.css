@@ -1,0 +1,83 @@
+form{
+    border-radius: 15px;
+    border: 3px solid rgb(0, 149, 207);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+.headerForm{
+    font-size: 30px;
+}
+
+.formElement{
+    margin-top: 5px;
+}
+
+.lab{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.formInput{
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 6px;
+    outline: none;
+    padding: 4px;
+    width: 98%;
+    margin: 5px;
+    height: 25px;
+    font-size: 18px;
+}
+
+.formButtons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: right;
+}
+
+.btnSubmit, .btnBack{
+    margin-top: 3px;
+    border: none;
+    margin-left: 15px;
+    width: 150px;
+    height: 30px;
+}
+
+.btnSubmit{
+    background-color: yellowgreen;
+}
+.btnSubmit:hover {
+    background-color: rgb(111, 150, 34);
+}
+
+.btnBack{
+    background-color: tomato;
+}
+
+.btnBack:hover{
+    background-color: rgb(211, 79, 56);
+}
+
+.invalid{
+    border: 2px solid red;
+}
+
+.btnReg{
+    margin-top: 3px;
+    border: none;
+    margin-left: 8px;
+    width: 120px;
+    height: 20px;
+}
+
+.btnReg:hover{
+    background-color: rgb(201, 201, 201);
+}
+
+.error{
+    font-size: 18px;
+    color: red;
+}

@@ -1,0 +1,43 @@
+<section class="review">
+
+	<div *ngIf="clicked; then formAdd; else btnAdd"></div>
+
+    <ng-template #btnAdd>
+        <button class="buttonAdd" (click)="onClickAdd()">Dodaj recenzję</button>
+    </ng-template>
+
+    <ng-template #formAdd>
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<header class="headerForm">Recenzja: </header>
+
+			<div class="formElement">
+				<label class="lab" for="nick">Nick: </label><br>
+				<input type="text" class="formInput" formControlName="nick" [ngClass]="{'invalid': form.get('nick')?.invalid && form.get('nick')?.touched}">
+			</div>
+
+			<div class="formElement">
+				<label class="lab" for="reviewName">Nazwa: </label><br>
+				<input type="text" class="formInput" formControlName="reviewName" [ngClass]="{'invalid': form.get('reviewName')?.invalid && form.get('reviewName')?.touched}">
+			</div>
+
+			<div class="formElement">
+				<label class="lab" for="description">Opis: </label><br>
+				<textarea type="text" class="formInputDesc" formControlName="description" [ngClass]="{'invalid': form.get('description')?.invalid && form.get('description')?.touched}">
+				</textarea>
+			</div>
+
+			<div class="formElement">
+				<label class="lab" for="date">Data: </label><br>
+				<input type="date" class="formInput" formControlName="date">
+			</div>
+
+			<div *ngIf="isError" class="error">{{getLastError()}}</div>
+
+			<div class="formButtons">
+				<button type="submit" class="btnSubmit">Dodaj</button>
+				<button class="btnDiscard" (click)="discard()">Anuluj</button>
+			</div>
+			
+		</form>
+	</ng-template>
+</section>

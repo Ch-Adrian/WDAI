@@ -1,0 +1,37 @@
+<section class="menuCards">
+    <app-filter 
+    (kitchenOutput)="getKitchenOutput($event)"
+    (priceOutput)="getPriceOutput($event)"
+    (rateOutput)="getRateOutput($event)"
+    (categoryOutput)="getCategoryOutput($event)"
+    (typeOutput)="getTypeOutput($event)"
+    (filter)="isFilter($event)"
+    (startFilter)="startedFilter($event)"
+    ></app-filter>
+
+    <div class="dishCard" *ngFor="let dish of (getDishes() | searchPipe:kitchen:price:rate:category:type | slice:restaurantService.start:restaurantService.stop)" 
+                [ngStyle]="{'border': dish.getPrice('USD') == restaurantService.maxPrice? '3px solid green' : dish.getPrice('USD') == restaurantService.minPrice? '3px solid red' : 'none',
+                'background-color': dish.getAmount() <= 3? 'rgb(218, 131, 131)': 'rgb(241, 241, 241)'}">
+
+        <app-description [dishView]="dish"></app-description>
+        <div class="boxRateAndButtons">
+            <!-- <div class="rateDiv">Ocena: {{dish.getRate()}}</div> -->
+            <app-rate-star [isOn]="false" [rate]="dish.getRate()"></app-rate-star>
+            <!-- <app-modify-buttons *ngIf="authService.isLogged" [dishView]="dish" (deleted)="restaurantService.onDeleteDish($event)"></app-modify-buttons> -->
+        </div>
+    </div>
+    <div class="pagination">
+        <div class="innerPagination">
+            <button class="pagBtn pagBtnFirst" (click)="getFirstPage()">First</button>
+            <button class="pagBtn pagBtnPrev" (click)="getPreviousPage()">Prev</button>
+            <button class="pagBtn pagBtnNr" (click)="setPage(p)" *ngFor="let p of restaurantService.pages" [ngClass]="{'isCurrent': p == restaurantService.currentPage}">{{p}}</button>
+            <button class="pagBtn pagBtnNext" (click)="getNextPage()">Next</button>
+            <button class="pagBtn pagBtnLast" (click)="getLastPage()">Last</button>
+        </div>
+        <form class="inputEleme" [formGroup]="form">
+            <label for="maxElem">Amount of elements on page: </label>
+            <input type="number" formControlName="maxElem">
+            <button (click)="getMaxElem()">Change</button>
+        </form>
+    </div>
+</section>

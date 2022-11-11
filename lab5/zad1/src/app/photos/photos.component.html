@@ -1,0 +1,9 @@
+<div class="divPh" *ngFor="let ph of photos; let i=index">
+    <div class="titlePh">Zdjęcie {{i}}:</div>
+    <div>{{'AlbumId: '+ph.albumId}}</div>
+    <div>{{'Id: '+ph.id}}</div>
+    <div>{{'Title: '+ph.title}}</div>
+    <div>{{'Url: '+ph.url}}</div>
+    <div>{{'ThumbnailUrl: '+ph.thumbnailUrl}}</div>
+    <button (click)="routeTo(ph)">Show photo</button>
+</div>

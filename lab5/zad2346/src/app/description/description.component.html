@@ -1,0 +1,11 @@
+<div class="descriptionPart">
+	<nav class="images">
+		<img (click)="routeToDetail()" class="displayImg" src="{{dishView.getLink(0)}}">
+	</nav>
+	<article class="art">
+		<header class="headerCart">
+			<div class="name">{{dishView.getName() | uppercase}}</div>
+			<div class="dishPrice">{{dishView.getPrice(restaurantService.curr) | currency:restaurantService.curr}}</div>
+		</header>
+	</article>
+</div>

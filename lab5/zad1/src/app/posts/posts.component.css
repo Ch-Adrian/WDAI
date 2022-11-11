@@ -1,0 +1,54 @@
+.invalid{
+    border: 1px solid red;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+	height: fit-content;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 15px;
+}
+
+.formTitle{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.inner{
+    margin: 5px;
+}
+
+.UIdIN{
+    margin-left: 20px;
+}
+
+.IdIN{
+    margin-left: 46px;
+}
+
+.TitleIN{
+    margin-left: 30px;
+}
+
+.BodyIN{
+    margin-left: 25px;
+}
+
+.pstDiv{
+    margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 15px;
+}
+
+.remember{
+    color: black;
+    font-size: 12px;
+    position: relative;
+    left: 70px;
+    font-family:'Times New Roman', Times, serif;
+}

@@ -1,0 +1,231 @@
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card {
+  background-color: transparent;
+  width: 320px;
+  height: 520px;
+  border: none;
+  perspective: 1000px; 
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.innerCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  margin: 20px;
+}
+
+
+.card:hover .innerCard {
+  transform: rotateY(-180deg);
+}
+
+.front {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.back {
+  position: relative;
+  top: -520px;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* FRONT */
+
+.front {
+  width: 320px;
+  height: 520px;
+  box-shadow: 0 0 10px grey;
+}
+
+.img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    filter: brightness(140%), invert(100%);
+    z-index: 0;
+}
+
+.coverImage{
+  width: 100%;
+  height: 230px;
+  position: relative;
+  top: -234px;
+  z-index: 1;
+  opacity: 40%;
+  background-image: linear-gradient(to right, rgb(255, 187, 0), rgb(255, 145, 0));
+}
+
+#coverImage2{
+  background-image: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 173, 29));
+}
+
+#coverImage3{
+  background-image: linear-gradient(to right, rgb(0, 174, 255), rgb(0, 95, 173));
+}
+
+.bottomPicture{
+    position: relative;
+    top: -263px;
+    width: 0px;
+    height: 0px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid white;
+    border-left: 160px solid transparent;
+    border-right: 160px solid white;
+    z-index: 2;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: relative;
+  top: -360px;
+  left: 150px;
+  align-items: flex-end;
+  opacity: 70%;
+  z-index: 3;
+  color: white;
+}
+
+.title1{
+  width: fit-content;
+  background-image: linear-gradient(to right, rgb(255, 187, 0), rgb(255, 145, 0));
+  padding: 6px;
+  font-size: 24px;
+}
+
+#title21{
+  background-image: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 173, 29));
+}
+
+#title31{
+  background-image: linear-gradient(to right, rgb(0, 174, 255), rgb(0, 95, 173));
+}
+
+.title2{
+  background-image: linear-gradient(to right, rgb(255, 187, 0), rgb(255, 145, 0));
+  padding: 6px;
+  font-size: 24px;
+}
+
+#title22{
+  background-image: linear-gradient(to right, rgb(21, 255, 0), rgb(0, 173, 29));
+}
+
+#title32{
+  background-image: linear-gradient(to right, rgb(0, 174, 255), rgb(0, 95, 173));
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -310px;
+  align-items: center;
+}
+
+.button{
+  width: 200px;
+  border: none;
+  background-color: white;
+  padding: 15px;
+  color: rgb(131, 131, 131);
+}
+
+#button1{
+  border-bottom: 0.5px solid rgb(238, 238, 238);
+}
+
+#button2{
+  border-bottom: 0.5px solid rgb(238, 238, 238);
+}
+
+#button3{
+  border-bottom: 0.5px solid rgb(238, 238, 238);
+}
+
+#button4{
+  border-bottom: 0.5px solid rgb(238, 238, 238);
+}
+
+/* Back */
+
+.back {
+  background-image: linear-gradient(to right, rgb(255, 187, 0), rgb(255, 145, 0));
+  width: 320px;
+  height: 520px;
+  box-shadow: 0 0 10px grey;
+  transform: rotateY(-180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#back2{
+    background-image: linear-gradient(to right, rgb(44, 230, 20), rgb(0, 173, 29));
+}
+
+#back3{
+  background-image: linear-gradient(to right, rgb(0, 174, 255), rgb(0, 95, 173));
+}
+
+.tylko{
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.cena{
+  color: white;
+  font-size: 60px;
+  font-family: 'Century Gothic';
+  padding: 10px;
+  margin-bottom: 80px;
+}
+
+.buttonRez{
+  border: none;
+  border-radius: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 10px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1100px){
+
+  body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #card1, #card2, #card3{
+    margin: 20px;
+  }
+
+}

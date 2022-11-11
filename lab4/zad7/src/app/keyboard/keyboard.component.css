@@ -1,0 +1,6 @@
+section{
+    display: flex;
+    flex-direction: row;
+    padding-top: 25px;
+    z-index: 0;
+}

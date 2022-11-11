@@ -1,0 +1,12 @@
+section{
+    display: flex;
+    flex-direction: column;
+    background-color: yellowgreen;
+    border-radius: 5px;
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+}

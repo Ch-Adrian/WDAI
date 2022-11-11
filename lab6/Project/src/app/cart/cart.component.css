@@ -1,0 +1,46 @@
+section{
+	background-color: white;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding: 20px;
+	border: 1px solid rgb(0, 149, 207);
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.product{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 5px;
+	border-bottom: 1px dashed gray;
+}
+
+.inner{
+	display: flex;
+	flex-direction: row;
+}
+
+.art1{
+	padding-right: 30px;
+}
+
+.art2{
+	padding-right: 10px;
+}
+
+.summary{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-top: 5px solid gray;
+	margin-top: 4px;
+}
+
+.costLbl, .cost{
+	padding-top: 5px;	
+}
+
+.costLbl{
+	margin-right: 10px;
+}

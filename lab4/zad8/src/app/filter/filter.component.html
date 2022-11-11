@@ -1,0 +1,86 @@
+
+<section *ngIf="clicked; then formFilter ; else btnFilter"></section>
+
+<ng-template #btnFilter>
+	<button class="btnFiltr" (click)="onClickFilter()">Filtruj</button>
+</ng-template>
+
+<ng-template #formFilter>
+<section class="formSection">
+	<header >
+		<div class="headTitle">Filtr: </div>
+		<div *ngFor="let f of filtry">{{f}}</div>
+	</header>
+	<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
+	<form [formGroup]='kitchenForm' (ngSubmit)="kitchenSubmit()">
+		<div class="outer">
+			<div class="inner">
+				<label class="lbl">Kuchnia: </label>
+				<select class="sel" formControlName="kitchen">
+					<!-- <option selected>kuchnia</option> -->
+					<option *ngFor="let k of kitchen">{{k}}</option>
+				</select>
+			</div>
+			<button class="btn">Dodaj</button>
+		</div>
+	</form>
+		<div class="outer">
+			<div class="inner innerCena">
+				<div class="innerLeftCena">
+					<label class="lbl">Cena od: </label>
+					<select class="sel">
+						<!-- <option selected>min</option> -->
+						<option *ngFor="let p of price">{{p}}</option>
+					</select>
+				</div>
+				
+				<div class="innerRightCena">
+					<label class="lbl">Cena do: </label>
+					<select class="sel">
+						<!-- <option selected>max</option> -->
+						<option *ngFor="let p of price">{{p}}</option>
+					</select>
+				</div>
+			</div>
+			<button class="btn">Dodaj</button>
+		</div>
+
+		<div class="outer">
+			<div class="inner">
+				<label class="lbl">Ocena: </label>
+				<select class="sel">
+					<!-- <option selected>ocena</option> -->
+					<option *ngFor="let r of rate">{{r}}</option>
+				</select>
+			</div>
+			<button class="btn">Dodaj</button>
+		</div>
+
+		<div class="outer">
+			<div class="inner">
+				<label class="lbl">Kategoria: </label>
+				<select class="sel">
+					<!-- <option selected>kategoria</option> -->
+					<option *ngFor="let c of category">{{c}}</option>
+				</select>
+			</div>
+			<button class="btn">Dodaj</button>
+		</div>
+
+		<div class="outer">
+			<div class="inner">
+				<label class="lbl">Typ: </label>
+				<select class="sel">
+					<!-- <option selected>typ</option> -->
+					<option *ngFor="let t of type">{{t}}</option>
+				</select>
+			</div>
+			<button class="btn">Dodaj</button>
+		</div>
+
+		<div class="divSubmit">
+			<button (click)="onSubmit()" class="btn submitBtn">Filtruj</button>
+		</div>
+	<!-- </form> -->
+</section>
+</ng-template>

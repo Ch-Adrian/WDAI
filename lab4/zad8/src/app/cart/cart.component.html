@@ -1,0 +1,20 @@
+<section>
+	<div class="product">
+		<article class="art1">{{"Dish" | uppercase}}</article>
+		<div class="inner">
+			<article class="art2">{{"Amount"}}</article>
+			<article class="art3">{{"Price"}}</article>
+		</div>
+	</div>
+	<div class="product" *ngFor="let product of products">
+		<article class="art1">{{product.getName() | uppercase}}</article>
+		<div class="inner">
+			<article class="art2">{{product.getClientAmount()}}</article>
+			<article class="art3">{{product.getPrice(curr) | currency:curr }}</article>
+		</div>
+	</div>
+	<div class="summary">
+		<div class="costLbl">Total cost: </div>
+		<div class="cost">{{total | currency:curr }}</div>
+	</div>
+</section>

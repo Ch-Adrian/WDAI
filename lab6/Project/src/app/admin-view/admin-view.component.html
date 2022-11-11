@@ -1,0 +1,74 @@
+
+		<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+			<div class="formElement">
+				<div class="innerDiv">
+				<label class="lab" for="persis">Persistence( {{showPersis()}} ): </label><br>
+                <select class="innerSelect" formControlName="persis" [ngClass]="{'invalid': form.get('persis')?.value == 'Persistence type' && form.get('persis')?.touched}">
+                    <option selected>Persistence type</option>
+                    <option *ngFor="let p of persistences">{{p}}</option>
+                </select>
+			</div>
+			</div>
+
+			<div class="formButtons">
+				<button type="submit" class="btnSubmit">Zatwierdź</button>
+			</div>
+			
+		</form>
+
+		<article class="usersArt">
+			<header class="usersHeader">
+				Użytkownicy: 
+			</header>
+			<article class="userArt" *ngFor="let u of authService.users">
+				<section class="reviewSec">
+					<header *ngIf="u.isBanned" class="banned">
+						Banned
+					</header>
+					<header class="userName">
+						{{"Nazwa: "+u.name}}
+					</header>
+					<div class="userEmail">
+						<label class="emailLbl">Email: {{u.email}}</label>
+					</div>
+					<div class="userRole">
+						<label class="roleLbl">Rola: {{u.role}}</label>
+					</div>
+				</section>
+				<section>
+
+										
+					<section *ngIf="clicked && clickedUser(u); then formRole ; else btnRole"></section>
+
+					<ng-template #btnRole>
+						<button class="btnEditRole" (click)="btnEditRole(u)">Edytuj</button>
+					</ng-template>
+					<ng-template #formRole>
+						<form class="form2"  [formGroup]="formInner">
+							<div class="formElement">
+								<label class="lab2" for="role">Role: </label><br>
+								<div class="innerDiv">
+								<input type="checkbox" class="role1In" formControlName="roleAdmin">
+								<label class="roleLbl" for="roleAdmin">Admin</label>
+								</div>
+								<div class="innerDiv">
+								<input type="checkbox" class="role1In" formControlName="roleManager">
+								<label class="roleLbl" for="roleManager">Manager</label>
+								</div>
+								<div class="innerDiv">
+								<input type="checkbox" class="role1In" formControlName="roleClient">
+								<label class="roleLbl" for="roleClient">Client</label>
+								</div>
+							</div>
+				
+							<div class="formButtons">
+								<button (click)="onSubmit2(u)" class="btnSubmit">Ustaw role</button>
+								<button (click)="banUser(u)" class="btnRed">{{getStrBan(u)}}</button>
+								<button (click)="back()" class="btnBack">Cofnij</button>
+							</div>
+							
+						</form>
+					</ng-template>
+				</section>
+			</article>
+		</article>

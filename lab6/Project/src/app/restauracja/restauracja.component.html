@@ -1,0 +1,58 @@
+<header class="headerRestauracja">
+    <article class="restauracja">Restauracja</article>
+    <div class="menu">
+
+        <div id="icon">
+            <button (click)="currBtn()" class="currBtn">{{restaurantService.curr}}</button>
+            <input class="check" type="checkbox">
+            <div id="top"></div>
+            <div id="mid"></div>
+            <div id="bot"></div>
+            <section class="menuSection">
+                <section class="innerButtonSection">
+                    <button (click)="clickHome()" class="btn btnHome">Home</button>
+                    <button (click)="clickMenu()" class="btn btnMenu">Menu</button>
+                    <button (click)="clickAddDish()" class="btn btnAddDish">Manager View</button>
+                    <button (click)="clickAdminView()" class="btn btnAdminView">Admin View</button>
+                </section>
+                <div class="rightHeader">
+                    <button class="signIn" (click)="signInBtn()">{{authService.logingKey}}</button>
+                    <div *ngIf="authService.isLogged; then divName; else signUp"></div>
+                    <button class="cartButton" (click)="clickCart()">Shopping cart</button>
+                    <ng-template #divName>
+                        <div class="userName" >{{authService.userLoggedName}}</div>
+                    </ng-template>
+        
+                    <ng-template #signUp>
+                        <button class="signUp" (click)="signUpBtn()">Rejestracja</button>
+                    </ng-template>
+                </div>
+            </section>
+        </div>
+
+        <section class="innerSection">
+            <section  class="innerButtonSection">
+                <button (click)="clickHome()" class="btn btnHome">Home</button>
+                <button (click)="clickMenu()" class="btn btnMenu">Menu</button>
+                <button (click)="clickAddDish()" class="btn btnAddDish">Manager View</button>
+                <button (click)="clickAdminView()" class="btn btnAdminView">Admin View</button>
+            </section>
+            <div class="rightHeader">
+                <button (click)="currBtn()" class="currBtn">{{restaurantService.curr}}</button>
+                <button class="cartButton" (click)="clickCart()">Shopping cart</button>
+                <button class="signIn" (click)="signInBtn()">{{authService.logingKey}}</button>
+                <div *ngIf="authService.isLogged; then divName; else signUp"></div>
+
+                <ng-template #divName>
+                    <div class="userName" >{{authService.userLoggedName}}</div>
+                </ng-template>
+
+                <ng-template #signUp>
+                    <button class="signUp" (click)="signUpBtn()">Rejestracja</button>
+                </ng-template>
+            </div>
+        </section>
+    </div>
+</header>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,51 @@
+
+.displayImg{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 8px;
+
+}
+
+.displayImg:hover{
+	width: 96px;
+	height: 96px;
+	border: 2px solid rgb(0, 149, 207);
+}
+
+.moreImages{
+	border: none;
+	width: 100px;
+	height: max-content;
+	font-size: 12px;
+}
+
+.moreImages:hover{
+	color:rgb(0, 149, 207);
+}
+
+.descriptionPart{
+	display: flex;
+	flex-direction: row;
+}
+
+.images{
+	display: flex;
+	flex-direction: column;
+	margin: 5px;
+}
+
+.headerCart{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.name{
+	font-size: 28px;
+}
+
+.dishPrice{
+	padding-left: 10px;
+	font-size: 25px;
+}

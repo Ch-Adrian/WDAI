@@ -1,0 +1,23 @@
+<header>
+    <section class="title">{{title | titlecase}}</section>
+</header>
+<section >
+    <nav class="left">
+        <app-car-list (outputModel)="getSignalModel($event)" (outputMark)="getSignalMark($event)" (outputColor)="getSignalColor($event)"></app-car-list>
+    </nav>
+    <nav class="right">
+        <div class="label">
+            <div class="lab">Marka: </div>
+            <div class="lab-right">{{mark}}</div>
+        </div>
+        <div class="label">
+            <div class="lab">Model:  </div>
+            <div class="lab-right">{{model}}</div>
+        </div>
+        <div class="label">
+            <div class="lab">Color: </div>
+            <div class="lab-color" [ngStyle]="{'background-color': color}">{{color}}</div>
+        </div>
+    </nav>
+</section>
+

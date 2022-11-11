@@ -1,0 +1,18 @@
+<div class="descriptionPart">
+	<nav class="images">
+		<img class="displayImg" src="{{dishView.getLink()}}">
+		<button class="moreImages">More images</button>
+	</nav>
+	<article class="art">
+		<header class="headerCart">
+			<div class="name">{{dishView.getName() | uppercase}}</div>
+			<div class="dishPrice">{{dishView.getPrice(curr) | currency:curr}}</div>
+			<app-rate-star class="rating" (rateEmitter)="getEmittedRate($event)"></app-rate-star>
+		</header>
+		<div class="desc kitchenType">{{'Kuchnia: '+dishView.getKitchenType()}}</div>
+		<div class="desc dishType">{{'Typ dania: '+dishView.getDishType()}}</div>
+		<div class="desc dishCategory">{{'Kategoria: '+dishView.getCategory()}}</div>
+		<div class="desc ingredientsList">{{'Składniki: '+dishView.getIngredients()}}</div>
+		<div class="desc description">{{'Opis: '+dishView.getDescription()}}</div>
+	</article>
+</div>

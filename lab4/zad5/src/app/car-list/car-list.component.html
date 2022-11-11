@@ -1,0 +1,60 @@
+<form>
+    <div class="divCar">
+        <section class="menu">
+            <div class="carLabel">Samochód: </div>
+            <div class="divMiniMark" *ngIf="markaLength(); then markButton"></div>
+            <div class="divMiniModel" *ngIf="model != ''; then modelButton"></div>
+            <div class="divMiniColor" *ngIf="colorek != ''; then buttonColor"></div>
+        </section>
+
+        <div class="divMark" *ngIf="markaLength() == false; then markList"></div>
+
+            <ng-template #markList>
+                <div class="lab markLabel" for="marki">Marki do wyboru: </div>
+                <div class="divBtnMark" *ngFor="let mark of cars.marks">
+                    <button class="btn btnMark" (click)="onClickMarka(mark)">{{mark}}</button>
+                </div>
+            </ng-template>
+
+            <ng-template #markButton>
+                <button class="mini btnMiniMark" (click)="resetMark()">{{marka}}</button>
+            </ng-template>
+
+        <div class="divModel" *ngIf="model == ''; then modelListDiv"></div>
+
+            <ng-template #modelListDiv>
+                <div class="divModelList" *ngIf="markaLength(); then modelList"></div>
+            </ng-template>
+
+            <ng-template #modelList>
+                    <div class="lab modelLabel" for="models">Modele od wyboru: </div>
+                    <div class="divBtnModel" *ngFor="let modell of getModel(marka)">
+                        <button class="btn btnModel"(click)="onClickModel(modell.getModel())">{{modell.getModel()}}</button>
+                    </div>
+            </ng-template>
+
+            <ng-template #modelButton>
+                <button class="mini btnMiniModel" (click)="resetModel()">{{model}}</button>
+            </ng-template>
+
+        <div class="divColor" *ngIf="colorek == ''; then colorListDiv"></div>
+
+            <ng-template #colorListDiv>
+                <div class="divColor" *ngIf="modelLength(); then colorList;"></div>
+            </ng-template>
+
+            <ng-template #colorList>
+                <div class="lab colorLabel" for="colors">Kolory do wyboru: </div>
+                <div class="divBtnColor" *ngFor="let color of getColors()">
+                    <button class="btn btnColor" (click)="onClickColor($event, color)">
+                        <p>{{marka+" "+model + ": " + color}}</p>
+                        <div [ngStyle]="{'background-color': color}" class="recColor"></div>
+                    </button>
+                </div>
+            </ng-template>
+            <ng-template #buttonColor>
+                <button class="mini btnMiniColor" (click)="resetColor()">{{colorek}}</button>
+            </ng-template>
+
+    </div> 
+</form>

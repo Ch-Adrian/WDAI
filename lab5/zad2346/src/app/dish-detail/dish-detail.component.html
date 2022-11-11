@@ -1,0 +1,73 @@
+<div class="body">
+<article class="art">
+	<nav class="imagesLeft">
+		<img class="img img1" src="{{dishView.getLink(0)}}">
+		<img class="img img2" src="{{dishView.getLink(1)}}">
+		<img class="img img3" src="{{dishView.getLink(2)}}">
+	</nav>
+	<nav>
+		<header class="headerCart">
+			<div class="title">
+				<div class="name">{{dishView.getName() | uppercase}}</div>
+				<div class="dishPrice">{{"Price: "+(dishView.getPrice(this.restaurantService.curr) | currency:this.restaurantService.curr)}}</div>
+			</div>
+			<div class="modify">
+				<app-rate-star class="rating" (rateEmitter)="getEmittedRate($event)"></app-rate-star>
+				<app-modify-buttons class="modifyBtns" [dishView]="dishView" (deleted)="restaurantService.onDeleteDish($event)"></app-modify-buttons>
+			</div>
+		</header>
+		<div class="stringSec">
+			<label class="lbl opisLbl">Opis: </label>
+			<div class="desc description">{{dishView.getDescription()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl kuchniaLbl">Kuchnia: </label>
+			<div class="desc kitchenType">{{dishView.getKitchenType()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl typLbl">Typ dania: </label>
+			<div class="desc dishType">{{dishView.getDishType()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl categoryLbl">Kategoria: </label>
+			<div class="desc dishCategory">{{dishView.getCategory()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl ingredientsLbl">Składniki: </label>
+			<div class="desc ingredientsList">{{dishView.getIngredients()}}</div>
+		</div>
+	</nav>
+</article>
+
+<section>
+
+	<header class="reviewHeader">
+		<app-form-add-review></app-form-add-review>
+		<article class="stringRecenzje">Recenzje: </article>
+	</header>
+
+	<article class="reviewsArt">
+		<article class="reviewArt" *ngFor="let r of dishView.reviews">
+			<nav class="user">
+				<label class="revLbl">Użytkownik: </label>
+				{{r.nick}}
+			</nav>
+			<section class="reviewSec">
+				<header class="reviewName">
+					{{r.name}}
+				</header>
+				<div class="reviewDate">
+					<label *ngIf="r.date" class="dataLbl">Data: </label>
+					{{r.date}}
+				</div>
+				<div class="reviewDescription">
+					<label class="opisLbl">Opis: </label>
+					<div class="textarea">{{r.description}}</div>
+				</div>
+			</section>
+		</article>
+	</article>
+
+</section>
+
+</div>

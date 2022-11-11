@@ -1,0 +1,46 @@
+.menuCards{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.dishCard{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 6px;
+	background-color: rgb(241, 241, 241);
+}
+
+.pagination{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: rgb(241, 241, 241);
+	padding: 4px 0px 4px 0px;
+}
+.innerPagination{
+	width: 70%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.pagBtn{
+	padding: 8px 12px 8px 12px;
+	margin: 0px 2px 0px 2px;
+	background-color: rgb(0, 149, 207);
+	color: white;
+	border-radius: 10px;
+	border: 1px solid white;
+}
+
+.pagBtn:hover{
+	background-color: rgb(0, 110, 153);
+	color: white;
+	border: 1px solid black;
+}
+
+.inputEleme{
+	margin-top: 6px;
+	margin-left: 20px;
+}

@@ -1,0 +1,19 @@
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<header class="headerForm">Rejestracja: </header>
+			<div class="formElement">
+				<label class="lab" for="name">Nazwa: </label><br>
+				<input type="text" class="formInput" formControlName="name" [ngClass]="{'invalid': form.get('name')?.invalid && form.get('name')?.touched}">
+			</div>
+			<div class="formElement">
+				<label class="lab" for="email">Email: </label><br>
+				<input type="email" class="formInput" formControlName="email" [ngClass]="{'invalid': form.get('email')?.invalid && form.get('email')?.touched}">
+			</div>
+			<div class="formElement">
+				<label class="lab" for="pass">Hasło: </label><br>
+				<input type="password" class="formInput" formControlName="pass" [ngClass]="{'invalid': form.get('pass')?.invalid && form.get('pass')?.touched}">
+			</div>
+			<div *ngIf="authService.isError" class="error">{{authService.getLastError()}}</div>
+			<div class="formButtons">
+				<button type="submit" class="btnSubmit">Zarejestruj</button>
+			</div>
+		</form>

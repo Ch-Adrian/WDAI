@@ -1,0 +1,24 @@
+<section>
+
+	<div class="product">
+		<article class="art1">{{"Dish" | uppercase}}</article>
+		<div class="inner">
+			<article class="art2">{{"Amount"}}</article>
+			<article class="art3">{{"Price"}}</article>
+		</div>
+	</div>
+
+	<div class="product" *ngFor="let product of products; let idx = index">
+		<article class="art1">{{product.getName() | uppercase}}</article>
+		<div class="inner">
+			<article class="art2">{{dataProducts[idx].quantity}}</article>
+			<article class="art3">{{product.getPrice(restaurantService.curr) | currency:restaurantService.curr }}</article>
+		</div>
+	</div>
+
+	<div class="summary">
+		<div class="costLbl">Total cost: </div>
+		<div class="cost">{{restaurantService.getCartTotal(restaurantService.curr) | currency:restaurantService.curr }}</div>
+	</div>
+
+</section>

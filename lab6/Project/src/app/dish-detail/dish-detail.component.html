@@ -1,0 +1,162 @@
+<div class="body">
+	<div *ngIf='authService.isLoggedManager'>
+	<section *ngIf="clicked; then formAdd ; else btnAdd"></section>
+	</div>
+
+<ng-template #btnAdd>
+	<button class="btnAdd" (click)="onClickAdd()">Edytuj potrawę</button>
+</ng-template>
+
+<ng-template #formAdd>
+<section>
+        <div class="form">
+            <header class="headerForm">Edit Dish</header>
+
+            <form [formGroup]="formName" class="formElement" (ngSubmit)="onSubmitName()">
+                <label class="lab" for="dishName">Name: </label><br>
+                <input type="text" class="formInput" formControlName="dishName" [ngClass]="{'invalid': formName.get('dishName')?.invalid && formName.get('dishName')?.touched}">
+				<button type="submit" class="btnSubmit">Zmień</button>
+			</form>
+
+            <form [formGroup]="formKitchen" class="formElement" (ngSubmit)="onSubmitKitchen()">
+                <label class="lab" for="kitchenType">Type of kitchen: </label><br>
+                <select class="innerSelect kitchenSelect" formControlName="kitchenType" [ngClass]="{'invalid': formKitchen.get('kitchenType')?.value == 'Kitchen type' && formKitchen.get('kitchenType')?.touched}">
+                    <option selected>Kitchen type</option>
+                    <option *ngFor="let kitchen of kitchens">{{kitchen}}</option>
+                </select>
+				<button type="submit" class="btnSubmit">Zmień</button>
+                <!-- <input type="text" class="formInput" formControlName="kitchenType"> -->
+            </form>
+
+            <form [formGroup]="formType" class="formElement" (ngSubmit)="onSubmitType()">
+                <label class="lab" for="dishType">Typ dania: </label><br>
+                <select class="innerSelect typeSelect" formControlName="dishType" [ngClass]="{'invalid': formType.get('dishType')?.value == 'Dish type' && formType.get('dishType')?.touched}">
+                    <option selected>Dish type</option>
+                    <option *ngFor="let type of supply.getTypes()">{{type}}</option>
+                </select>
+				<button type="submit" class="btnSubmit">Zmień</button>
+                <!-- <input type="text" class="formInput" formControlName="dishType"> -->
+            </form>
+
+            <form [formGroup]="formCategory" class="formElement" (ngSubmit)="onSubmitCategory()">
+                <label class="lab" for="dishCategory">Kategoria dania: </label><br>
+                <select class="innerSelect categorySelect" formControlName="dishCategory" [ngClass]="{'invalid': formCategory.get('dishCategory')?.value == 'Category' && formCategory.get('dishCategory')?.touched}">
+                    <option selected>Category</option>
+                    <option *ngFor="let category of supply.getCategories()">{{category}}</option>
+                </select>
+				<button type="submit" class="btnSubmit">Zmień</button>
+                <!-- <input type="text" class="formInput" formControlName="dishCategory"> -->
+            </form>
+
+            <form [formGroup]="formIngredient" class="formElement" (ngSubmit)="onSubmitIngredient()">
+                <label class="lab" for="ingredientsList">Składniki: </label><br>
+                <input type="text" class="formInput" formControlName="ingredientsList" [ngClass]="{'invalid': formIngredient.get('ingredientsList')?.invalid && formIngredient.get('ingredientsList')?.touched}">
+				<button type="submit" class="btnSubmit">Zmień</button>
+			</form>
+
+            <form [formGroup]="formAmount" class="formElement" (ngSubmit)="onSubmitAmount()">
+                <label class="lab" for="maxAmount">Ilość: </label><br>
+                <input type="text" class="formInput" formControlName="maxAmount" [ngClass]="{'invalid': formAmount.get('maxAmount')?.invalid && formAmount.get('maxAmount')?.touched}">
+				<button type="submit" class="btnSubmit">Zmień</button>
+			</form>
+            <div *ngIf="isError" class="error">Wartość musi być numerem.</div>
+            <form [formGroup]="formPrice" class="formElement" (ngSubmit)="onSubmitPrice()">
+                <label class="lab" for="dishPrice">Cena(USD): </label><br>
+                <input type="text" class="formInput" formControlName="dishPrice" [ngClass]="{'invalid': formPrice.get('dishPrice')?.invalid && formPrice.get('dishPrice')?.touched}">
+				<button type="submit" class="btnSubmit">Zmień</button>
+			</form>
+            <div *ngIf="isError" class="error">Wartość musi być numerem.</div>
+
+            <form [formGroup]="formDescription" class="formElement" (ngSubmit)="onSubmitDescription()">
+                <label class="lab" for="description">Opis: </label><br>
+                <input type="text" class="formInput" formControlName="description" [ngClass]="{'invalid': formDescription.get('description')?.invalid && formDescription.get('description')?.touched}">
+				<button type="submit" class="btnSubmit">Zmień</button>
+			</form>
+
+            <form [formGroup]="formUrl" class="formElement" (ngSubmit)="onSubmitUrl()">
+                <label class="lab" for="url">Link do zdjęcia: </label><br>
+                <input type="text" class="formInput" formControlName="url" [ngClass]="{'invalid': formUrl.get('url')?.invalid && formUrl.get('url')?.touched}">
+				<button type="submit" class="btnSubmit">Dodaj</button>
+			</form>
+
+            <div class="formButtons">
+                <button class="btnDiscard" (click)="discard()">Anuluj</button>
+            </div>
+            
+        </div>
+</section>
+</ng-template>
+
+<article class="art">
+	<nav class="imagesLeft">
+		<img class="img" *ngFor="let l of dishView.link; let idx = index " src="{{dishView.getLink(idx)}}">
+		<!-- <img class="img img1" src="{{dishView.getLink(0)}}">
+		<img class="img img2" src="{{dishView.getLink(1)}}">
+		<img class="img img3" src="{{dishView.getLink(2)}}"> -->
+	</nav>
+	<nav>
+		<header class="headerCart">
+			<div class="title">
+				<div class="name">{{dishView.getName() | uppercase}}</div>
+				<div class="dishPrice">{{"Price: "+(dishView.getPrice(this.restaurantService.curr) | currency:this.restaurantService.curr)}}</div>
+			</div>
+			<div class="modify">
+				<app-rate-star *ngIf="authService.isLogged && (!authService.isLoggedManager || authService.isAdmin) && !authService.isBanned" class="rating" (rateEmitter)="getEmittedRate($event)" [rate]="getRateOfUser(dishView)" [isOn]="canBeRated(dishView)"></app-rate-star>
+				<app-modify-buttons *ngIf="authService.isLogged" class="modifyBtns" [dishView]="dishView" (deleted)="restaurantService.onDeleteDish($event)"></app-modify-buttons>
+			</div>
+		</header>
+		<div class="stringSec">
+			<label class="lbl opisLbl">Opis: </label>
+			<div class="desc description">{{dishView.getDescription()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl kuchniaLbl">Kuchnia: </label>
+			<div class="desc kitchenType">{{dishView.getKitchenType()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl typLbl">Typ dania: </label>
+			<div class="desc dishType">{{dishView.getDishType()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl categoryLbl">Kategoria: </label>
+			<div class="desc dishCategory">{{dishView.getCategory()}}</div>
+		</div>
+		<div class="stringSec">
+			<label class="lbl ingredientsLbl">Składniki: </label>
+			<div class="desc ingredientsList">{{dishView.getIngredients()}}</div>
+		</div>
+	</nav>
+</article>
+
+<section>
+
+	<header class="reviewHeader">
+		<app-form-add-review *ngIf="authService.isLogged && !authService.isBanned && canBeRated(dishView) && !isReview(dishView)"></app-form-add-review>
+		<article class="stringRecenzje">Recenzje: </article>
+	</header>
+
+	<article class="reviewsArt">
+		<article class="reviewArt" *ngFor="let r of dishView.reviews">
+			<nav class="user">
+				<label class="revLbl">Użytkownik: </label>
+				{{r.nick}}
+			</nav>
+			<section class="reviewSec">
+				<header class="reviewName">
+					{{r.name}}
+				</header>
+				<div class="reviewDate">
+					<label *ngIf="r.date" class="dataLbl">Data: </label>
+					{{r.date}}
+				</div>
+				<div class="reviewDescription">
+					<label class="opisLbl">Opis: </label>
+					<textarea class="textarea" disabled="true">{{r.description}}</textarea>
+				</div>
+			</section>
+		</article>
+	</article>
+
+</section>
+
+</div>

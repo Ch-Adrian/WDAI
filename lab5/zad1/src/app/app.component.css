@@ -1,0 +1,40 @@
+
+header{
+	display: flex;
+	flex-direction: row;
+	background-color: rgb(231, 231, 231);
+	height: fit-content;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.logo{
+	padding: 13px;
+	font-size: 30px;
+}
+
+section{
+	background-color: rgb(231, 231, 231);
+	height: fit-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 98%;
+}
+
+.link{
+	background-color: rgb(231, 231, 231);
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	height: 40px;
+	width: fit-content;
+	display: flex;
+	padding: 10px;
+	align-items: center;
+	border-collapse: collapse;
+}
+
+.link:hover{
+	background-color: rgb(182, 182, 182);
+}

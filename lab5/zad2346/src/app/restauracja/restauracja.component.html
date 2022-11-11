@@ -1,0 +1,14 @@
+<header class="headerRestauracja">
+    <article class="restauracja">Restauracja</article>
+    <section>
+        <button (click)="clickHome()" class="btn btnHome">Home</button>
+        <button (click)="clickMenu()" class="btn btnMenu">Menu</button>
+        <button (click)="clickAddDish()" class="btn btnAddDish">Add dish</button>
+    </section>
+    <div>
+        <button (click)="currBtn()" class="currBtn">{{restaurantService.curr}}</button>
+        <button class="cartButton" (click)="clickCart()">Shopping cart</button>
+    </div>
+</header>
+
+<router-outlet></router-outlet>

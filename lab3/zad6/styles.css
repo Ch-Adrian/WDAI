@@ -1,0 +1,134 @@
+
+body{
+    background-color: rgba(239, 255, 241, 0.575);
+}
+
+.leftDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.LabelNazwa{
+    font-weight: bold;
+}
+
+.label1{
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.wideDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 97%;
+    height: 100px;
+    background-color: white;
+    margin: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.submit{
+    width: 500px;
+    height: 46px;
+    margin-top: 28px;
+    margin-right: 20px;
+    margin-left: 10px;
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+}
+
+.innerForm{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+    padding-top: 7px;
+}
+
+.frm{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.label{
+    font-size: 10px;
+    color: grey;
+}
+
+.input{
+width: 100%;
+height: 40px;
+}
+
+.trashButton{
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
+    padding: 5px;
+    background-color: green;
+}
+
+.trash {
+    box-sizing: border-box;
+    position: relative;
+    left: 2px;
+    display: block;
+    width: 8px;
+    height: 12px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 3px white;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-top: 10px;
+    margin-left: 9px;
+   }
+.trashIN{
+    position: relative;
+    top: -2px;
+    left: 3px;
+    width: 1px;
+    height:12px;
+    background-color: white;
+}
+.trashIN2{
+    position: relative;
+    top: -14px;
+    left: 0px;
+    width:1px;
+    height:12px;
+    background-color: white;
+}
+   
+   .trash::after,
+   .trash::before {
+       content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+   }
+   
+   .trash::after {
+    background: white;
+    border-radius: 3px;
+    width: 20px;
+    height: 2px;
+    top: -5px;
+    left: -8px
+   }
+   
+   .trash::before {
+    width: 10px;
+    height: 7px;
+    border: 2px solid white;
+    border-bottom: transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    top: -9px;
+    left: -3px
+   } 

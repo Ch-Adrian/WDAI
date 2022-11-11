@@ -1,0 +1,152 @@
+
+.body{
+	display: flex;
+	flex-direction: column;
+}
+
+.art{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.imagesLeft{
+	display: flex;
+	flex-direction: column;
+	margin-left: 30px;
+}
+
+.img{
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+
+.headerCart{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	padding: 15px;
+	margin: 5px;
+}
+
+.modify{
+	display: flex;
+	flex-direction: column;
+}
+
+.title{
+	display: flex;
+	flex-direction: column;
+}
+
+.name{
+	font-size: 30px;
+	color:lightcoral;
+}
+
+.dishPrice{
+	font-size: 25px;
+	color: gold;
+}
+
+.lbl{
+	font-size: 25px;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color:  rgb(0, 149, 207);
+}
+
+.desc{
+	font-size: 23px;
+}
+
+.stringSec{
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	padding: 15px;
+	margin: 5px;
+}
+
+.reviewHeader{
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(0, 149, 207);
+	color: white;
+	margin-left: 30px;
+	margin-right: 30px;
+	height: fit-content;
+	margin-top: 10px;
+	justify-content: space-between;
+	border-radius: 10px;
+}
+
+.stringRecenzje{
+	font-size: 25px;
+	padding: 8px;
+}
+
+.reviewArt{
+	display: flex;
+	flex-direction: row;
+	margin-left: 30px;
+	height: 200px;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	margin-right: 30px;
+	margin-top: 10px;
+	background-color: rgb(119, 188, 216);
+	border-radius: 20px;
+}
+
+.user{
+	display: flex;
+	flex-direction: column;
+	border-right: 2px solid gray;
+	padding: 20px;
+	color: white;
+	font-size: 20px;
+}
+
+.reviewSec{
+	margin-left: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.reviewName{
+	font-size: 40px;
+	color: white;
+}
+
+.reviewDate{
+	font-size: 20px;
+}
+
+.revLbl{
+	font-size: 30px;
+}
+
+.nameLbl{
+	font-size: 20px;
+}
+
+.opisLbl{
+	font-size: 25px;
+}
+
+.reviewDescription{
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
+}
+
+.textarea{
+	display: flex;
+	word-wrap: break-word;
+	font-size: 18px;
+	background-color: white;
+	margin-right: 20px;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 5px;
+}

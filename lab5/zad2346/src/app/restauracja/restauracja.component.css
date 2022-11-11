@@ -1,0 +1,65 @@
+.headerRestauracja{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* margin: 30px; */
+	background-color: rgb(0, 149, 207);
+	/* border-radius: 7px; */
+	padding: 5px;
+}
+
+.restauracja{
+	padding:  7px;
+	font-size: 30px;
+	color: white;
+
+}
+
+.cartButton{
+	padding: 13px;
+	font-size: 18px;
+	background-color: rgb(214, 211, 0);
+	border: none;
+	color: white;
+	border-radius: 40px;
+}
+
+.cartButton:hover{
+	border: 1px solid white;
+	padding-bottom: 11px;
+	padding-right: 11px;
+}
+
+.cart{
+	position: absolute;
+	right: 100px;
+	top: 87px;
+	/* visibility: hidden; */
+}
+
+.btn{
+	background-color: rgb(0, 149, 207);
+	width: fit-content;
+	position: relative;
+	top: -5px;
+	height: 120%;
+	border-left: 1px solid rgb(202, 202, 202);
+	border-right: 1px solid rgb(202, 202, 202);
+	border-top: none;
+	border-bottom: none;
+	color: white;
+	font-size: 20px;
+}
+
+.btn:hover{
+	background-color: rgb(0, 162, 226);
+	border-left: 1px solid rgb(255, 255, 255);
+	border-right: 1px solid rgb(255, 255, 255);
+}
+
+.currBtn{
+	background-color: aliceblue;
+	border:1px solid gb(255, 255, 255);
+	margin-right: 10px;
+}
+

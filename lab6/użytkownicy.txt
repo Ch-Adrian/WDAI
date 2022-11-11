@@ -1,0 +1,26 @@
+Admin:
+nazwa: admin123
+hasło: admin123
+e-mail: admin123@gmail.com
+
+Manager:
+nazwa: manager123
+hasło: manager123
+e-mail: manager123@gmail.com
+
+Klienci:
+nazwa: client123
+hasło: client123
+e-mail: client123@gmail.com
+
+nazwa: client2
+hasło: client123
+e-mail: client2@gmail.com
+
+nazwa: client3
+hasło: client123
+e-mail: client3@gmail.com
+
+nazwa: client4
+hasło: client123
+e-mail: client4@gmail.com

@@ -1,0 +1,28 @@
+<section>
+	<button (click)="onClick(1)" class="btn1">
+		<div [ngStyle]="{'border-bottom': rate>0 ? '8px solid gold': '8px solid black'}" class="triangle1"></div>
+		<div [ngStyle]="{'border-bottom': rate>0 ? '6px solid gold': '6px solid black'}" class="triangle2"></div>
+		<div [ngStyle]="{'border-bottom': rate > 0 ? '6px solid gold': '6px solid black'}" class="triangle3"></div>
+	</button>
+	<button (click)="onClick(2)" class="btn2"><div class="star">
+		<div [ngStyle]="{'border-bottom': rate>1 ? '8px solid gold': '8px solid black'}" class="triangle1"></div>
+		<div [ngStyle]="{'border-bottom': rate>1 ? '6px solid gold': '6px solid black'}" class="triangle2"></div>
+		<div [ngStyle]="{'border-bottom': rate>1 ? '6px solid gold': '6px solid black'}" class="triangle3"></div>
+	</div></button>
+	<button (click)="onClick(3)" class="btn3"><div class="star">
+		<div [ngStyle]="{'border-bottom': rate>2 ? '8px solid gold': '8px solid black'}" class="triangle1"></div>
+		<div [ngStyle]="{'border-bottom': rate>2 ? '6px solid gold': '6px solid black'}" class="triangle2"></div>
+		<div [ngStyle]="{'border-bottom': rate>2 ? '6px solid gold': '6px solid black'}" class="triangle3"></div>
+	</div>
+	</button>
+	<button (click)="onClick(4)" class="btn4"><div class="star">
+		<div [ngStyle]="{'border-bottom': rate>3 ? '8px solid gold': '8px solid black'}" class="triangle1"></div>
+		<div [ngStyle]="{'border-bottom': rate>3 ? '6px solid gold': '6px solid black'}" class="triangle2"></div>
+		<div [ngStyle]="{'border-bottom': rate>3 ? '6px solid gold': '6px solid black'}" class="triangle3"></div>
+	</div></button>
+	<button (click)="onClick(5)" class="btn5"><div class="star">
+		<div [ngStyle]="{'border-bottom': rate>4 ? '8px solid gold': '8px solid black'}" class="triangle1"></div>
+		<div [ngStyle]="{'border-bottom': rate>4 ? '6px solid gold': '6px solid black'}"  class="triangle2"></div>
+		<div [ngStyle]="{'border-bottom': rate>4 ? '6px solid gold': '6px solid black'}" class="triangle3"></div>
+	</div></button>
+</section>

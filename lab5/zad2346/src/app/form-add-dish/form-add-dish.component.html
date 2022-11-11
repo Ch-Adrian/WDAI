@@ -1,0 +1,71 @@
+<section>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <header class="headerForm">New Dish: </header>
+
+            <div class="formElement">
+                <label class="lab" for="dishName">Name: </label><br>
+                <input type="text" class="formInput" formControlName="dishName" [ngClass]="{'invalid': form.get('dishName')?.invalid && form.get('dishName')?.touched}">
+            </div>
+
+            <div class="formElement">
+                <label class="lab" for="kitchenType">Type of kitchen: </label><br>
+                <select class="innerSelect kitchenSelect" formControlName="kitchenType" [ngClass]="{'invalid': form.get('kitchenType')?.value == 'Kitchen type' && form.get('kitchenType')?.touched}">
+                    <option selected>Kitchen type</option>
+                    <option *ngFor="let kitchen of kitchens">{{kitchen}}</option>
+                </select>
+                <!-- <input type="text" class="formInput" formControlName="kitchenType"> -->
+            </div>
+
+            <div class="formElement">
+                <label class="lab" for="dishType">Type of dish: </label><br>
+                <select class="innerSelect typeSelect" formControlName="dishType" [ngClass]="{'invalid': form.get('dishType')?.value == 'Dish type' && form.get('dishType')?.touched}">
+                    <option selected>Dish type</option>
+                    <option *ngFor="let type of supply.getTypes()">{{type}}</option>
+                </select>
+                <!-- <input type="text" class="formInput" formControlName="dishType"> -->
+            </div>
+
+            <div class="formElement">
+                <label class="lab" for="dishCategory">Dish category: </label><br>
+                <select class="innerSelect categorySelect" formControlName="dishCategory" [ngClass]="{'invalid': form.get('dishCategory')?.value == 'Category' && form.get('dishCategory')?.touched}">
+                    <option selected>Category</option>
+                    <option *ngFor="let category of supply.getCategories()">{{category}}</option>
+                </select>
+                <!-- <input type="text" class="formInput" formControlName="dishCategory"> -->
+            </div>
+
+            <div class="formElement">
+                <label class="lab" for="ingredientsList">Ingredients: </label><br>
+                <input type="text" class="formInput" formControlName="ingredientsList" [ngClass]="{'invalid': form.get('ingredientsList')?.invalid && form.get('ingredientsList')?.touched}">
+            </div>
+
+            <div class="formElement">
+                <label class="lab" for="maxAmount">Amount: </label><br>
+                <input type="text" class="formInput" formControlName="maxAmount" [ngClass]="{'invalid': form.get('maxAmount')?.invalid && form.get('maxAmount')?.touched}">
+            </div>
+            <div *ngIf="isError" class="error">Wartość musi być numerem.</div>
+            <div class="formElement">
+                <label class="lab" for="dishPrice">Price(USD): </label><br>
+                <input type="text" class="formInput" formControlName="dishPrice" [ngClass]="{'invalid': form.get('dishPrice')?.invalid && form.get('dishPrice')?.touched}">
+            </div>
+            <div *ngIf="isError" class="error">Wartość musi być numerem.</div>
+
+            <div class="formElement">
+                <label class="lab" for="description">Description: </label><br>
+                <input type="text" class="formInput" formControlName="description" [ngClass]="{'invalid': form.get('description')?.invalid && form.get('description')?.touched}">
+            </div>
+
+            <div class="formElement">
+                <label class="lab" for="url">Link to images: </label><br>
+                <input type="text" class="formInput" formControlName="url" [ngClass]="{'invalid': form.get('url')?.invalid && form.get('url')?.touched}">
+            </div>
+
+            <div *ngIf="isError" class="error">Proszę wypełnić wszystkie pola.</div>
+
+            <div class="formButtons">
+                <button type="submit" class="btnSubmit">Dodaj</button>
+                <button class="btnDiscard" (click)="discard()">Anuluj</button>
+            </div>
+            
+        </form>
+</section>

@@ -1,0 +1,16 @@
+<header class="headerMenu">
+    <article class="menu">Menu</article>
+    <button class="cartButton" (click)="addProducts()">Shopping cart</button>
+    <app-cart *ngIf="cartShow" [total]="cartTotal" [products]="cartProducts" class="cart"></app-cart>
+</header>
+<section class="menuCards">
+    <div class="dishCard" *ngFor="let dish of supply.getDishes()" 
+                [ngStyle]="{'border': dish.getPrice('USD') == maxPrice? '3px solid green' : dish.getPrice('USD') == minPrice? '3px solid red' : 'none',
+                'background-color': dish.getAmount() <= 3? 'rgb(218, 131, 131)': 'rgb(241, 241, 241)'}">
+
+        <app-description [curr]="curr" [dishView]="dish"></app-description>
+        <app-modify-buttons [dishView]="dish" (deleted)="onDeleteDish($event)"></app-modify-buttons>
+        
+    </div>
+    <app-form-add-dish (isAdded)="onAddDish($event)"></app-form-add-dish>
+</section>

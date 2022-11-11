@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="postData()">
+    <div class="formTitle">Add post: </div>
+    <div class="inner">
+    <label class="lbl UId" for="userId">UserId:</label>
+    <input class="input UIdIN" type="text" formControlName="userId"
+    [ngClass]="{'invalid': form.get('userId')?.invalid && form.get('userId')?.touched}">
+    <div class="remember">Must be a number.</div>
+    </div>
+    <div class="inner">
+    <label class="lbl Id" for="id">Id: </label>
+    <input class="input IdIN" type="text" formControlName="id"
+    [ngClass]="{'invalid': form.get('id')?.invalid && form.get('id')?.touched}">
+    <div class="remember">Must be a number.</div>
+</div><div class="inner">
+    <label class="lbl Title" for="title">Title: </label>
+    <input class="input TitleIN" type="text" formControlName="title"
+    [ngClass]="{'invalid': form.get('title')?.invalid && form.get('title')?.touched}">
+</div><div class="inner">
+    <label class="lbl Body" for="body">Body: </label>
+    <input class="input BodyIN" type="text" formControlName="body"
+    [ngClass]="{'invalid': form.get('body')?.invalid && form.get('body')?.touched}">
+</div>
+    <button type="submit" class="btnSubmit">Post data</button>
+</form>
+
+<div class="pstDiv" *ngFor="let pst of posts; let i=index">
+    <div>Post {{i}}:</div>
+    <div>{{'UserId: '+pst.userId}}</div>
+    <div>{{'Id: '+pst.id}}</div>
+    <div>{{'Title: '+pst.title}}</div>
+    <div>{{'Body: '+pst.body}}</div>
+</div>

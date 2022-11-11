@@ -1,0 +1,183 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+}
+
+.imag{
+    display: flex;
+    flex-direction: row;
+    margin: 9px;
+}
+
+.rect{
+    width: 6px;
+    height: 30px;
+    transform: skew(-20deg);
+    background: red;
+    margin: 1px;
+    background-image: -webkit-linear-gradient(rgb(0, 197, 59) ,turquoise);
+}
+
+.easy{
+    font-size: 26px;
+    margin-bottom: 2px;
+    margin-left: 3px;
+    color: rgb(0, 0, 121);
+    font-family: fantasy;
+}
+
+.header2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+}
+.section22{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonRequest{
+    margin-right: 10px;
+    font-size: 17px;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 197, 59) ,turquoise);
+    border-radius: 100px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    color: white;
+}
+
+.buttonRequest:hover{
+    box-shadow: 0 0 10px grey;
+}
+
+.button2{
+    background-color: white;
+    border: none;
+    color: grey;
+    opacity: 70%;
+}
+
+.button2:hover{
+    opacity: 100%;
+}
+
+.section{
+    height: 100%;
+    width: auto;
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#div1{
+    z-index: 5;
+    top: 234px;
+}
+
+#div2{
+    z-index: 3;
+    top: 156px;
+}
+
+#div3{
+    z-index: 2;
+}
+
+#div4{
+    z-index: 1;
+    width: 100%;
+    height: 80%;
+}
+
+.divIN{
+    position: relative;
+    top: 78px;
+    width: 100%;
+    height: 80%;
+}
+
+.body2{
+    position:relative;
+    top: -234px;
+    height: 100%;
+}
+
+.header22{
+    background-color:turquoise;
+}
+
+.header23{
+    background-color:thistle;
+}
+
+.header24{
+    background-color:tomato;
+}
+
+.button22{
+    font-size: 15px;
+}
+
+.button23{
+    font-size: 10px;
+}
+
+.button24{
+    font-size: 7px;
+}
+
+.buttonRequest2{
+    font-size: 7px;
+}
+
+.buttonRequest3{
+    font-size: 10px;
+}
+
+.buttonRequest4{
+    font-size: 16px;
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 700px){
+    
+.imag{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.rect{
+    width: 2px;
+    height: 20px;
+    transform: skew(-20deg);
+    background: red;
+    margin: 1px;
+    background-image: -webkit-linear-gradient(rgb(0, 197, 59) ,turquoise);
+}
+
+.easy{
+    font-size: 20px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+    color: rgb(0, 0, 121);
+    font-family: fantasy;
+}
+}
